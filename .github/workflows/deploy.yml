@@ -6,9 +6,9 @@ on:
     branches:
       - deploy
     paths:
-      - 'components/**'
       - 'deploy/**'
-      - 'src/**'
+      - 'MyBackEnd/**'
+      - 'MyFrontEnd/**'
       - '.github/workflows/**'
 
 env:
