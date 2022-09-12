@@ -88,5 +88,5 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: ${{ env.RESOURCE_GROUP_NAME }}acr.azurecr.io/${{ env.STORE_IMAGE }}:${{ github.sha }}
-        file: ${{ env.STORE_DOCKER }}
+        tags: ${{ env.RESOURCE_GROUP_NAME }}acr.azurecr.io/${{ env.FRONTEND_IMAGE }}:${{ github.sha }}
+        file: ${{ env.FRONTEND_DOCKER }}
