@@ -16,7 +16,7 @@ public class IndexModel : PageModel
     {
         var forecasts = await _daprClient.InvokeMethodAsync<IEnumerable<WeatherForecast>>(
             HttpMethod.Get,
-            "backend",
+            "mybackend",
             "weatherforecast");
 
         ViewData["WeatherForecastData"] = forecasts;
