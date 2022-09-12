@@ -16,7 +16,7 @@ env:
     RESOURCE_GROUP_NAME: cappsdapr
 
     # Specify your preferred region
-    LOCATION: westeurope
+    LOCATION: northeurope
 
     BACKEND_DOCKER: MyBackEnd/Dockerfile
     BACKEND_IMAGE: backend
