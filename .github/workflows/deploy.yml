@@ -18,6 +18,12 @@ env:
     # Specify your preferred region
     LOCATION: westeurope
 
+    BACKEND_DOCKER: MyBackEnd/Dockerfile
+    BACKEND_IMAGE: backend
+
+    FRONTEND_DOCKER: MyFrontEnd/Dockerfile
+    FRONTEND_IMAGE: frontend
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
