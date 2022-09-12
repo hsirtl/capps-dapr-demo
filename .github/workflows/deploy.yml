@@ -43,5 +43,4 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: >
-          az config set extension.use_dynamic_install=yes_without_prompt
           az extension add -n containerapp
