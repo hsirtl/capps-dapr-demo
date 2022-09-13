@@ -16,11 +16,7 @@ public class IndexModel : PageModel
 
     public async Task OnGet()
     {
-        _logger.LogDebug("Debug: Index page visited at {DT}", DateTime.UtcNow.ToLongTimeString());
-        _logger.LogInformation("Information: Index page visited at {DT}", DateTime.UtcNow.ToLongTimeString());
-        _logger.LogWarning("Warning: Index page visited at {DT}", DateTime.UtcNow.ToLongTimeString());
-        _logger.LogError("Error: Index page visited at {DT}", DateTime.UtcNow.ToLongTimeString());
-        _logger.LogCritical("Critical: Index page visited at {DT}", DateTime.UtcNow.ToLongTimeString());
+        _logger.LogInformation("Index page visited at {DT}", DateTime.UtcNow.ToLongTimeString());
 
         var forecasts = await _daprClient.InvokeMethodAsync<IEnumerable<WeatherForecast>>(
             HttpMethod.Get,
