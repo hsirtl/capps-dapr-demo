@@ -1,4 +1,4 @@
-name: Deploy CappsDapr to Azure Container Apps
+name: Build and Deploy CappsDapr to Azure Container Apps
 concurrency: capps-dapr
 
 on:    
@@ -6,10 +6,9 @@ on:
     branches:
       - deploy
     paths:
-      - 'deploy/**'
       - 'MyBackEnd/**'
       - 'MyFrontEnd/**'
-      - '.github/workflows/**'
+      - '.github/workflows/deploy.yml'
 
 env:
     # Specify your resource group's name
@@ -25,37 +24,8 @@ env:
     FRONTEND_IMAGE: frontend
 
 jobs:
-  provision:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout branch 
-        uses: actions/checkout@v2
-        
-      - name: Login to Azure
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_SPN }}
-
-      - name: Create resource group
-        uses: azure/CLI@v1
-        with:
-          inlineScript: >
-            echo "Creating resource group in Azure"
-            echo "Executing 'az group create -l ${{ env.LOCATION }} -n ${{ env.RESOURCE_GROUP_NAME }}'"
-            
-            az group create -l ${{ env.LOCATION }} -n ${{ env.RESOURCE_GROUP_NAME }}
-
-      - name: Deploy Bicep template  
-        uses: azure/arm-deploy@v1
-        with:
-          deploymentName: ${{ github.run_number }}
-          resourceGroupName: ${{ env.RESOURCE_GROUP_NAME }}
-          template: ./deploy/main.bicep
-
   build:
     runs-on: ubuntu-latest
-    needs: provision
     
     steps:
 
