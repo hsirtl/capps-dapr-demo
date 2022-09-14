@@ -2,6 +2,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDaprClient();
+builder.Services.AddApplicationInsightsTelemetry();
 builder.Services.AddRazorPages();
 
 var app = builder.Build();

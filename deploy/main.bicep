@@ -37,10 +37,10 @@ var shared_config = [
 ]
 
 // create the products api container app
-module backend 'modules/container_app.bicep' = {
-  name: 'backend'
+module mybackend 'modules/container_app.bicep' = {
+  name: 'mybackend'
   params: {
-    name: 'backend'
+    name: 'mybackend'
     location: location
     registryPassword: acr.listCredentials().passwords[0].value
     registryUsername: acr.listCredentials().username
@@ -52,10 +52,10 @@ module backend 'modules/container_app.bicep' = {
 }
 
 // create the store api container app
-module frontend 'modules/container_app.bicep' = {
-  name: 'frontend'
+module myfrontend 'modules/container_app.bicep' = {
+  name: 'myfrontend'
   params: {
-    name: 'frontend'
+    name: 'myfrontend'
     location: location
     registryPassword: acr.listCredentials().passwords[0].value
     registryUsername: acr.listCredentials().username
